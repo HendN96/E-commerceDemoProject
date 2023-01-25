@@ -11,4 +11,3 @@ Feature: F02_Login | users could use login functionality to use their accounts
   # Second scenario
   Scenario:  user login with invalid username and password
 
-

@@ -1,0 +1,3 @@
+org\example\stepDefinitions\Hooks.class
+org\example\testRunner\runner.class
+org\example\stepDefinitions\D08_wishlistStepDefine.class

@@ -8,6 +8,11 @@ import org.example.pages.P01_register;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
+import java.util.Scanner;
+
+import static org.example.stepDefinitions.Hooks.driver;
 
 public class D01_registerStepDefine {
 
@@ -17,7 +22,7 @@ public class D01_registerStepDefine {
     public void go_to_register(){
 
         WebElement registerButton=
-                Hooks.driver.findElement(By.cssSelector("a[href=\"/register?returnUrl=%2F\"]"));
+                driver.findElement(By.cssSelector("a[href=\"/register?returnUrl=%2F\"]"));
 
         registerButton.click();
 
@@ -29,20 +34,48 @@ public class D01_registerStepDefine {
       public void select_gender_type(){
 
 
-
-
     }
 
     @And("user enter first name")
 
     public void enter_first_name(){
 
+        Scanner sc= new Scanner(System.in);
+
 
     }
 
     @And("user enter date of birth")
 
-    public void enter_date_of_birth(){
+    public void enter_date_of_birth() throws InterruptedException {
+        WebElement list = driver.findElement(By.id("dropdown"));
+
+
+        Select droplist = new Select(list);
+
+        //3- Select options using 3 methods
+        //3.1- SelectByIndex
+        Thread.sleep(2000);
+        droplist.selectByIndex(1);
+
+        Thread.sleep(2000);
+        droplist.selectByIndex(2);
+
+        //3.2- SelectByValue
+        //Note SelectByValue input value is String but SelectByIndex is Integer
+        Thread.sleep(2000);
+        droplist.selectByValue("1");
+
+        Thread.sleep(2000);
+        droplist.selectByValue("2");
+
+        //3.3- SelectByVisibleText
+        Thread.sleep(2000);
+        droplist.selectByVisibleText("Option 1");
+
+        Thread.sleep(2000);
+        droplist.selectByVisibleText("Option 2");
+
 
 
     }
@@ -70,6 +103,8 @@ public class D01_registerStepDefine {
     @Then("success message is displayed")
 
     public void message_is_displayed(){
+
+        System.out.println("Registration Successful");
 
 
 
