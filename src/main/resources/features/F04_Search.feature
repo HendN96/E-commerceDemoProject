@@ -2,9 +2,8 @@
   Feature: F04_Search | users will be able to search for products with different parameters
 
     Scenario Outline: user could search using product name
-      When user clicks on search field
-      And user search with "<productName>"
-      Then user could find "<productName>" relatie reults
+      When  user search with "<productName>"
+      Then user could find "<productName>" related results
       Examples:
         |productName|
         |book|
